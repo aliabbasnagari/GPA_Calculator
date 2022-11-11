@@ -1,16 +1,13 @@
-# gpa_calculator
+# GPA Calculator
 
-A new Flutter project.
+A simple and easy to use calculator to help calculate GPA.
 
 ## Getting Started
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+### How to use
+Download and run the App and fill out the form with course Name, Credit hours, and Grade and clickk on plus icon to add.
+Keep adding your courses and your GPA on Top will get Update accordingly.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Good luck.
