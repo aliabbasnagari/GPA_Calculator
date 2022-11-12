@@ -50,15 +50,12 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
-  void reb() {
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
+          backgroundColor: const Color.fromRGBO(150, 251, 196, 1),
           appBar: AppBar(title: const Text("Home")),
           body: Column(
             children: [
@@ -79,7 +76,7 @@ class _MyAppState extends State<MyApp> {
                     : const Text("NoData"),
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(10.0),
                 child: InfoBox(callBack: () {
                   String name = DisplayBox.list.last.name;
                   double ch = DisplayBox.list.last.creditHours;

@@ -33,7 +33,7 @@ class DisplayBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    const double height = 200;
+    const double height = 180;
     const LinearGradient myGradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -66,7 +66,7 @@ class DisplayBox extends StatelessWidget {
             )
           ]),
       child: Padding(
-        padding: const EdgeInsets.all(25.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -76,7 +76,7 @@ class DisplayBox extends StatelessWidget {
                   child: TextField(
                     controller: controllerCname,
                     style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       color: Colors.black,
                     ),
                     decoration: const InputDecoration(
@@ -124,7 +124,7 @@ class DisplayBox extends StatelessWidget {
                   child: TextField(
                     controller: controllerChour,
                     style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       color: Colors.black,
                     ),
                     decoration: const InputDecoration(
@@ -147,7 +147,7 @@ class DisplayBox extends StatelessWidget {
                   child: TextField(
                     controller: controllerGrade,
                     style: const TextStyle(
-                      fontSize: 20,
+                      fontSize: 16,
                       color: Colors.black,
                     ),
                     decoration: const InputDecoration(

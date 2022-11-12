@@ -26,7 +26,7 @@ class _InfoBoxState extends State<InfoBox> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    const double height = 200;
+    const double height = 180;
 
     final btnSize = 80 < (size.width) * 0.15 ? 80.0 : (size.width) * 0.15;
     const LinearGradient myGradient = LinearGradient(
@@ -39,185 +39,147 @@ class _InfoBoxState extends State<InfoBox> {
     );
 
     return SizedBox(
+      width: size.width,
       height: height,
       child: Row(
         children: [
-          Container(
-            width: size.width * 0.7,
-            height: height,
-            decoration: BoxDecoration(
-                gradient: myGradient,
-                borderRadius: BorderRadius.circular(50),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black87,
-                    blurRadius: 10,
-                    offset: Offset(4, 4),
-                  )
-                ]),
-            child: Padding(
-              padding: const EdgeInsets.all(25.0),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: TextField(
-                      controller: controllerCname,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                      decoration: const InputDecoration(
-                        hintStyle: TextStyle(color: Colors.white),
-                        filled: true,
-                        fillColor: Color.fromRGBO(255, 255, 255, 0.3),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(50)),
-                          borderSide: BorderSide.none,
+          Expanded(
+            child: Container(
+              height: height,
+              decoration: BoxDecoration(
+                  gradient: myGradient,
+                  borderRadius: BorderRadius.circular(50),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black87,
+                      blurRadius: 10,
+                      offset: Offset(4, 4),
+                    )
+                  ]),
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  children: [
+                    Expanded(
+                      child: TextField(
+                        controller: controllerCname,
+                        style: const TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
                         ),
-                        hintText: 'Course Name',
+                        decoration: const InputDecoration(
+                          hintStyle: TextStyle(color: Colors.white),
+                          filled: true,
+                          fillColor: Color.fromRGBO(255, 255, 255, 0.3),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(50)),
+                            borderSide: BorderSide.none,
+                          ),
+                          hintText: 'Course Name',
+                        ),
                       ),
                     ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        child: TextField(
-                          controller: controllerChour,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                          decoration: const InputDecoration(
-                            hintStyle: TextStyle(color: Colors.white),
-                            filled: true,
-                            fillColor: Color.fromRGBO(255, 255, 255, 0.3),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(50)),
-                              borderSide: BorderSide.none,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: TextField(
+                            controller: controllerChour,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
                             ),
-                            hintText: 'Credit Hours',
+                            decoration: const InputDecoration(
+                              hintStyle: TextStyle(color: Colors.white),
+                              filled: true,
+                              fillColor: Color.fromRGBO(255, 255, 255, 0.3),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50)),
+                                borderSide: BorderSide.none,
+                              ),
+                              hintText: 'Credit Hours',
+                            ),
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.next,
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 15,
-                      ),
-                      SizedBox(
-                        width: 150,
-                        child: TextField(
-                          maxLength: 2,
-                          controller: controllerGrade,
-                          style: const TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                          ),
-                          decoration: const InputDecoration(
-                            counterText: "",
-                            hintStyle: TextStyle(color: Colors.white),
-                            filled: true,
-                            fillColor: Color.fromRGBO(255, 255, 255, 0.3),
-                            border: OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(50)),
-                              borderSide: BorderSide.none,
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        SizedBox(
+                          width: 100,
+                          child: TextField(
+                            maxLength: 2,
+                            controller: controllerGrade,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
                             ),
-                            hintText: 'Grade',
+                            decoration: const InputDecoration(
+                              counterText: "",
+                              hintStyle: TextStyle(color: Colors.white),
+                              filled: true,
+                              fillColor: Color.fromRGBO(255, 255, 255, 0.3),
+                              border: OutlineInputBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50)),
+                                borderSide: BorderSide.none,
+                              ),
+                              hintText: 'Grade',
+                            ),
+                            textInputAction: TextInputAction.done,
                           ),
                         ),
-                      ),
-                    ],
-                  )
-                ],
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          String name = controllerCname.text.trim();
-                          String chour = controllerChour.text.trim();
-                          String grade = controllerGrade.text.trim();
-                          if (name.isEmpty ||
-                              chour.isEmpty ||
-                              grade.isEmpty ||
-                              !RegExp(r'^[0-9]+$').hasMatch(chour) ||
-                              !RegExp(r'^[A-F-a-f---+]+$').hasMatch(grade)) {
-                            showAlertDialog(context);
-                            return;
-                          }
-                          grade = grade.toUpperCase();
-                          DisplayBox.list.add(SubjectData(
-                              name: name,
-                              creditHours: double.parse(chour),
-                              grade: grade));
-                          widget.callBack();
-                          controllerCname.text = "";
-                          controllerChour.text = "";
-                          controllerGrade.text = "";
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.blueAccent,
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black87,
-                                blurRadius: 10,
-                                offset: Offset(4, 4),
-                              ),
-                            ],
-                          ),
-                          width: btnSize,
-                          height: btnSize,
-                          child: const Icon(
-                            Icons.add_rounded,
-                            size: 35,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: GestureDetector(
-                        onTap: () {
-                          controllerCname.text = "";
-                          controllerChour.text = "";
-                          controllerGrade.text = "";
-                        },
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.red,
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black87,
-                                blurRadius: 10,
-                                offset: Offset(4, 4),
-                              ),
-                            ],
-                          ),
-                          width: btnSize,
-                          height: btnSize,
-                          child: const Icon(
-                            Icons.clear_rounded,
-                            size: 30,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+                FloatingActionButton(
+                  onPressed: () {
+                    String name = controllerCname.text.trim();
+                    String chour = controllerChour.text.trim();
+                    String grade = controllerGrade.text.trim();
+                    if (name.isEmpty ||
+                        chour.isEmpty ||
+                        grade.isEmpty ||
+                        !RegExp(r'^[0-9-.]+$').hasMatch(chour) ||
+                        !RegExp(r'^[A-F-a-f---+]+$').hasMatch(grade)) {
+                      showAlertDialog(context);
+                      return;
+                    }
+                    grade = grade.toUpperCase();
+                    DisplayBox.list.add(SubjectData(
+                        name: name,
+                        creditHours: double.parse(chour),
+                        grade: grade));
+                    widget.callBack();
+                    FocusManager.instance.primaryFocus?.unfocus();
+                    controllerCname.text = "";
+                    controllerChour.text = "";
+                    controllerGrade.text = "";
+                  },
+                  backgroundColor: Colors.blueAccent,
+                  child: const Icon(
+                    Icons.add_rounded,
+                    size: 30,
+                  ),
+                ),
+                const FloatingActionButton(
+                  onPressed: null,
+                  backgroundColor: Colors.red,
+                  child: Icon(
+                    Icons.clear_rounded,
+                    size: 30,
+                  ),
                 ),
               ],
             ),
