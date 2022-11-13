@@ -152,7 +152,9 @@ class _InfoBoxState extends State<InfoBox> {
                         chour.isEmpty ||
                         grade.isEmpty ||
                         !RegExp(r'^[0-9-.]+$').hasMatch(chour) ||
-                        !RegExp(r'^[A-F-a-f---+]+$').hasMatch(grade)) {
+                        !RegExp(r'^[A-F-a-f---+]+$').hasMatch(grade) ||
+                        (grade.length == 2 &&
+                            (grade[0] != '+' || grade[0] != '-'))) {
                       showAlertDialog(context);
                       return;
                     }
@@ -173,10 +175,14 @@ class _InfoBoxState extends State<InfoBox> {
                     size: 30,
                   ),
                 ),
-                const FloatingActionButton(
-                  onPressed: null,
+                FloatingActionButton(
+                  onPressed: () {
+                    controllerCname.text = "";
+                    controllerChour.text = "";
+                    controllerGrade.text = "";
+                  },
                   backgroundColor: Colors.red,
-                  child: Icon(
+                  child: const Icon(
                     Icons.clear_rounded,
                     size: 30,
                   ),
