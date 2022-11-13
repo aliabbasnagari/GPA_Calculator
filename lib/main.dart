@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:gpa_calculator/customs/display_box.dart';
 import 'customs/info_box.dart';
@@ -92,8 +91,6 @@ class _MyAppState extends State<MyApp> {
                         myData.removeWhere((element) => element == p1);
                         setState(() {});
                         calculateGPA();
-                        print(myData.length);
-                        print(DisplayBox.list.length);
                       }),
                     ));
                     calculateGPA();
