@@ -23,12 +23,26 @@ class _InfoBoxState extends State<InfoBox> {
     super.dispose();
   }
 
+  bool isValidGrade(String grade) {
+    if (grade.isNotEmpty && grade.length < 3) {
+      if ((grade.codeUnitAt(0) >= 65 && grade.codeUnitAt(0) <= 90) ||
+          (grade.codeUnitAt(0) >= 97 && grade.codeUnitAt(0) <= 122)) {
+        if (grade.length == 1) {
+          return true;
+        } else if (grade.codeUnitAt(1) == 43 || grade.codeUnitAt(1) == 45) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final mySize = MediaQuery.of(context).size;
     const double height = 180;
 
-    final btnSize = 80 < (size.width) * 0.15 ? 80.0 : (size.width) * 0.15;
+    //final btnSize = 80 < (size.width) * 0.15 ? 80.0 : (size.width) * 0.15;
     const LinearGradient myGradient = LinearGradient(
       begin: Alignment.topLeft,
       end: Alignment.bottomRight,
@@ -39,7 +53,7 @@ class _InfoBoxState extends State<InfoBox> {
     );
 
     return SizedBox(
-      width: size.width,
+      width: mySize.width,
       height: height,
       child: Row(
         children: [
@@ -152,9 +166,7 @@ class _InfoBoxState extends State<InfoBox> {
                         chour.isEmpty ||
                         grade.isEmpty ||
                         !RegExp(r'^[0-9-.]+$').hasMatch(chour) ||
-                        !RegExp(r'^[A-F-a-f---+]+$').hasMatch(grade) ||
-                        (grade.length == 2 &&
-                            (grade[0] != '+' || grade[0] != '-'))) {
+                        !isValidGrade(grade)) {
                       showAlertDialog(context);
                       return;
                     }
